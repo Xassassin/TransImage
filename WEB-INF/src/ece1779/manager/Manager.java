@@ -194,6 +194,9 @@ public class Manager {
 				RunInstancesRequest request = new RunInstancesRequest(IMAGE_ID,
 						count, count);
 				request.setKeyName(KEY_NAME);
+				List<String> security = new ArrayList<String>();
+				security.add("ece1779");
+				request.setSecurityGroupIds(security);
 				RunInstancesResult result = ec2.runInstances(request);
 				Reservation reservation = result.getReservation();
 				List<Instance> newInstances = reservation.getInstances();
